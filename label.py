@@ -15,17 +15,20 @@ print(labels)
 
 plate = 0 
 tail_light = 0
-if 'Vehicle registration plate' in labels: 
-    plate = 1
-    if 'Automotive tail & brake light' in labels: 
-        tail_light = 1 
-if plate ==1:
-    if tail_light ==1:
-        print("rear")
-    else: 
-        print("front")
-if plate ==0: 
-    print("side")
+if 'Car' in labels: 
+    if 'Vehicle registration plate' in labels: 
+        plate = 1
+        if 'Automotive tail & brake light' in labels: 
+            tail_light = 1 
+    if plate ==1:
+        if tail_light ==1:
+            print("rear")
+        else: 
+            print("front")
+    if plate ==0: 
+        print("side")
+else: 
+    print("Not a car image")
 
 
 
