@@ -1,6 +1,6 @@
 import json 
 import utils_math as um 
-from ocr import bounding_box
+from ocr import Vision
 from utils_image import rotate_image, draw_box
 import time
 import cv2 
@@ -11,7 +11,8 @@ with open('config.json', 'r') as file:
 
 print("ocr_started")
 start = time.time()
-coordinate = bounding_box(config['image_path'], config['vision_api_key'])
+ocr = Vision(config['vision_api_key'])
+coordinate = ocr.process_image(config['image_path'], "OBJECT_LOCALIZATION")
 end = time.time()
 print(coordinate)
 print("ocr_done", end-start)
